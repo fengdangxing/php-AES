@@ -16,7 +16,8 @@ class Aes
     public static function encrypt(string $data)
     {
         $config = ApplicationContext::getContainer()->get(ConfigInterface::class);
-        return openssl_encrypt($json, $config['app.fengdangxing.encrypt.method'], $config['app.fengdangxing.encrypt.key'], OPENSSL_RAW_DATA, $config['app.fengdangxing.encrypt.iv']);
+        $appConfig = $config->get('app');
+        return openssl_encrypt($data, $appConfig['fengdangxing']['encrypt']['method'], $appConfig['fengdangxing']['encrypt']['key'], OPENSSL_RAW_DATA, $appConfig['fengdangxing']['encrypt']['iv']);
     }
 
     /**
@@ -26,7 +27,9 @@ class Aes
      */
     public static function decrypt(string $data)
     {
-        return openssl_decrypt($string, $config['app.fengdangxing.encrypt.method'], $config['app.fengdangxing.encrypt.key'], OPENSSL_RAW_DATA, $config['app.fengdangxing.encrypt.iv']);
+        $config = ApplicationContext::getContainer()->get(ConfigInterface::class);
+        $appConfig = $config->get('app');
+        return openssl_decrypt($data, $appConfig['fengdangxing']['encrypt']['method'], $appConfig['fengdangxing']['encrypt']['key'], OPENSSL_RAW_DATA, $appConfig['fengdangxing']['encrypt']['iv']);
     }
 
 
