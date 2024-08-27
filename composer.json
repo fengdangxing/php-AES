@@ -4,7 +4,7 @@
     "keywords": [
         "aes",
         "php",
-        "hyperf",
+        "hyperf"
     ],
     "license": "MIT",
     "minimum-stability": "dev",
