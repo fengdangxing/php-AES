@@ -15,9 +15,8 @@ return [
 #use
 ```php
 <?php
-$str =  \Fengdangxing\Aes\Aes::encrypt("121212");
-echo $str.PHP_EOL;
-echo \Fengdangxing\Aes\Aes::decrypt("121212");
-
+    $str =  \Fengdangxing\Aes\Aes::encrypt("121212");
+    echo $str.PHP_EOL;
+    echo \Fengdangxing\Aes\Aes::decrypt($str);
 ```
 
